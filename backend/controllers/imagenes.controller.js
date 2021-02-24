@@ -8,6 +8,7 @@ Imagenesctrl.getImagenes = async (req,res ) => {
 Imagenesctrl.createImagenes = async (req,res) => {
     const imagenes = new Imagenes(req.body);
     await imagenes.save();
+    res.json({status: 'imagen creada'});
 
 };
 

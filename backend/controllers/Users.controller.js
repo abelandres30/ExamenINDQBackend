@@ -8,6 +8,8 @@ Usersctrl.getUsers = async (req,res ) => {
 Usersctrl.createUsers = async (req,res) => {
     const user = new Users(req.body);
     await user.save();
+    res.json(user);
+
 };
 Usersctrl.getUser = async (req,res) =>  {
     const user = await Users.findById(req.params.id);

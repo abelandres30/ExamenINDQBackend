@@ -7,12 +7,12 @@ EventsCtrl.getEvents = async (req,res ) => {
 };
 EventsCtrl.createEvents = async (req,res) => {
     const event = new Events(req.body);
-
     if (req.file) {
         const path = req.file.path;
         event.imagen = '/assets/' + req.file.filename;
     }
     await event.save();
+    res.json(event);
 };
 EventsCtrl.getEvent = async (req,res) =>  {
     const event = await Events.findById(req.params.id);
